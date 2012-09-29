@@ -13,7 +13,7 @@ class WaitingList < Sinatra::Base
 
   config_file './config.yml'
 
-  DataMapper.setup(:default, "postgres://#{settings.database[:name]}:#{settings.database[:port]}@#{settings.database[:host]}/#{settings.database[:name]}")
+  DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://#{settings.database[:name]}:#{settings.database[:port]}@#{settings.database[:host]}/#{settings.database[:name]}")
 
   post '/sign-up/?' do
     if params[:email].match(%r{^.+@.+$})
