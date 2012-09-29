@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= @settings.description %> | <%= @settings.name %></title>
+    <meta name="viewport" content="width = device-width">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/screen.css">
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <h1><a href="/"><%= @settings.name %></a></h1>
+        <h2><%= @settings.description %></h2>
+      </div>
+    </header>
+    <section>
+      <h1>Stay Tuned</h1>
+      <p>We're still in the planning stages &#151; sign up to be the first to hear announcements!</p>
+
+      <form action="/sign-up" method="post">
+        <% if flash[:error] %>
+        <div class="error-message">
+          <p><%= flash[:error] %></p>
+        </div>
+        <% end %>
+        <% if flash[:notice] %>
+        <div class="success-message">
+          <p><%= flash[:notice] %></p>
+        </div>
+        <% end %>
+        <div class="form-row">
+          <input type="email" class="text" name="email" placeholder="email address">
+        </div>
+        <div class="form-row">
+          <input type="submit" class="button" value="Sign Up">
+        </div>
+      </form>
+    </section>
+    <footer>
+      <a href="//twitter.com/<%= @settings.twitter %>">
+        @<%= @settings.twitter %>
+      </a>
+    </footer>
+    <script type="text/javascript" src="/javascripts/app.js"></script>
+  </body>
+</html>

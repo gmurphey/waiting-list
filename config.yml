@@ -1,0 +1,15 @@
+name: Waiting List
+description: A Simple Announcement App
+twitter: gmurphey
+
+messages:
+  success: Thanks! We'll be in touch soon.
+  error: A valid email address is required.
+
+database:
+  development:
+    name: waiting_list
+    host: localhost
+    port: 5432
+    user: root
+    password:
